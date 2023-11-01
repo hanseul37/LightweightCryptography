@@ -68,13 +68,18 @@ CMSE_NS_ENTRY void SECURE_RegisterCallback(SECURE_CallbackIDTypeDef CallbackId, 
   }
 }
 
+//  STRING_LENGTH / 8
+#define NUM_ENC 8
+
 CMSE_NS_ENTRY void encrypt(uint8_t* plain, uint8_t* key){
 	uint8_t plain_temp[STRING_LENGTH];
 	uint8_t key_temp[16];
 	memcpy(plain_temp, plain, STRING_LENGTH);
 	memcpy(key_temp, key, 16);
 
-	present_encrypt(plain_temp, key_temp);
+	for (uint8_t i = 0; i < NUM_ENC; i++)
+		present_encrypt((plain_temp + 8 * i), key_temp);
+
 	memcpy(plain, plain_temp, STRING_LENGTH);
 	return;
 }
@@ -85,7 +90,8 @@ CMSE_NS_ENTRY void decrypt(uint8_t* plain, uint8_t* key){
 	memcpy(plain_temp, plain, STRING_LENGTH);
 	memcpy(key_temp, key, 16);
 
-	present_decrypt(plain_temp, key_temp);
+	for (uint8_t i = 0; i < NUM_ENC; i++)
+		present_decrypt((plain_temp + 8 * i), key_temp);
 	memcpy(plain, plain_temp, STRING_LENGTH);
 	return;
 }

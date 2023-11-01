@@ -60,7 +60,7 @@ all: main-build
 main-build: second_base_NonSecure.elf secondary-outputs
 
 dependents:
-	-cd /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_base/Secure/Debug && $(MAKE) clean all
+	-cd /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_base/Secure/Debug && $(MAKE) all
 
 # Tool invocations
 second_base_NonSecure.elf second_base_NonSecure.map: $(OBJS) $(USER_OBJS) /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_base/Secure/Debug/second_base_Secure.elf /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_base/NonSecure/STM32L552ZETXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)

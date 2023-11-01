@@ -60,7 +60,7 @@ all: main-build
 main-build: second_enocoro_NonSecure.elf secondary-outputs
 
 dependents:
-	-cd /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_enocoro/Secure/Debug && $(MAKE) clean all
+	-cd /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_enocoro/Secure/Debug && $(MAKE) all
 
 # Tool invocations
 second_enocoro_NonSecure.elf second_enocoro_NonSecure.map: $(OBJS) $(USER_OBJS) /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_enocoro/Secure/Debug/second_enocoro_Secure.elf /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_enocoro/NonSecure/STM32L552ZETXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)

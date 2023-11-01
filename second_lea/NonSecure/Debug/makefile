@@ -60,7 +60,7 @@ all: main-build
 main-build: second_lea_NonSecure.elf secondary-outputs
 
 dependents:
-	-cd /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_lea/Secure/Debug && $(MAKE) clean all
+	-cd /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_lea/Secure/Debug && $(MAKE) all
 
 # Tool invocations
 second_lea_NonSecure.elf second_lea_NonSecure.map: $(OBJS) $(USER_OBJS) /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_lea/Secure/Debug/second_lea_Secure.elf /Users/hanseul/STM32CubeIDE/workspace_1.11.2/second_lea/NonSecure/STM32L552ZETXQ_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
